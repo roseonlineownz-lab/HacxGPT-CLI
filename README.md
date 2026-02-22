@@ -48,7 +48,7 @@
 
 Here is a glimpse of HacxGPT-CLI in action:
 
-![HacxGPT Demo Screenshot](https://github.com/HacxGPT-Official/HacxGPT-CLI/blob/main/img/home.png)
+![HacxGPT Demo Screenshot](https://github.com/HacxGPT-Official/HacxGPT-CLI/blob/main/img/HacxGPT-CLI-home.png)
 
 ---
 
@@ -466,5 +466,6 @@ This project stands on the shoulders of giants. We thank:
 </div>
 
 ***
+
 
 
