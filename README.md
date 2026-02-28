@@ -42,7 +42,6 @@
 - **Custom Local API Engine:** Replaced `litellm` and `openai` with a standalone, high-performance `api.py` engine. ZERO external API SDK dependencies for maximum speed and control.
 - **Reasoning Support:** Optimized rendering for `<think>` tags (CoT) with a dedicated reasoning panel.
 - **Auto-Update System:** Built-in update engine! Use `/update` in chat or run the new update scripts.
-- **Bug Fixes:** Resolved UTF-8 decoding issues and improved connection stability.
 
 ---
 
