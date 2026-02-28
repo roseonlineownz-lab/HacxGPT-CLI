@@ -225,6 +225,8 @@ class ChatMessage(BaseModel):
         tool_calls: List[ToolCall] = None,
         tool_call_id: str = None,
         refusal: str = None,
+        reasoning_content: str = None,
+        thought: str = None,
         **kwargs,
     ):
         super().__init__(**kwargs)
@@ -235,6 +237,8 @@ class ChatMessage(BaseModel):
         self.tool_calls = tool_calls
         self.tool_call_id = tool_call_id
         self.refusal = refusal
+        self.reasoning_content = reasoning_content
+        self.thought = thought
 
 
 class DeltaMessage(BaseModel):
@@ -246,6 +250,8 @@ class DeltaMessage(BaseModel):
         function_call: FunctionCall = None,
         tool_calls: List[ToolCall] = None,
         refusal: str = None,
+        reasoning_content: str = None,
+        thought: str = None,
         **kwargs,
     ):
         super().__init__(**kwargs)
@@ -254,6 +260,8 @@ class DeltaMessage(BaseModel):
         self.function_call = function_call
         self.tool_calls = tool_calls
         self.refusal = refusal
+        self.reasoning_content = reasoning_content
+        self.thought = thought
 
 
 class Choice(BaseModel):
@@ -1386,6 +1394,8 @@ def _parse_message(data: dict) -> ChatMessage:
         function_call=function_call,
         tool_call_id=data.get("tool_call_id"),
         refusal=data.get("refusal"),
+        reasoning_content=data.get("reasoning_content") or data.get("reasoning"),
+        thought=data.get("thought"),
     )
 
 
@@ -1422,6 +1432,8 @@ def _parse_delta(data: dict) -> DeltaMessage:
         tool_calls=tool_calls,
         function_call=function_call,
         refusal=data.get("refusal"),
+        reasoning_content=data.get("reasoning_content") or data.get("reasoning"),
+        thought=data.get("thought"),
     )
 
 

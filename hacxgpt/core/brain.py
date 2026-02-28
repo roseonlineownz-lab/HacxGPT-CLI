@@ -126,13 +126,28 @@ class HacxBrain:
                 for chunk in response:
                     # chunk is ChatCompletionChunk from api.py
                     if chunk.choices and len(chunk.choices) > 0:
-                        content = chunk.choices[0].delta.content
+                        delta = chunk.choices[0].delta
+                        content = delta.content
+                        reasoning = getattr(delta, "reasoning_content", None) or getattr(delta, "thought", None)
+                        
+                        if reasoning:
+                            # Wrap reasoning in <think> tags for the UI to handle it
+                            think_content = f"<think>{reasoning}</think>"
+                            full_content += think_content
+                            yield think_content
+                        
                         if content:
                             full_content += content
                             yield content
             else:
                 # Non-streaming response handling
-                full_content = response.choices[0].message.content or ""
+                msg = response.choices[0].message
+                content = msg.content or ""
+                reasoning = getattr(msg, "reasoning_content", None) or getattr(msg, "thought", None)
+                if reasoning:
+                    full_content = f"<think>{reasoning}</think>{content}"
+                else:
+                    full_content = content
                 yield full_content
             
             if not full_content:
