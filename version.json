@@ -1,5 +1,5 @@
 {
-    "version": "2.1.0",
-    "release_notes": "Bug fixes",
+    "version": "2.1.1",
+    "release_notes": "Bug fixes, session persistence, and enhanced key encryption",
     "min_python_version": "3.8"
 }

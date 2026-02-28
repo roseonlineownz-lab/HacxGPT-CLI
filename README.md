@@ -34,13 +34,15 @@
 
 ---
 
-## 🚀 NEW IN V2.1.0
+## NEW IN V2.1.1
 
+- **Conversation Persistence:** Save, load, and list your neural sessions with `/save`, `/load`, and `/sessions`.
+- **Machine-Bound Key Encryption:** Your API keys are now encrypted using a machine-specific hardware ID. Keys are locked to your device for pro-level security.
+- **Config Relocation:** Configuration is now stored in the user home directory (`~/.hacx`) to persist across updates and prevent accidental deletion.
 - **Custom Local API Engine:** Replaced `litellm` and `openai` with a standalone, high-performance `api.py` engine. ZERO external API SDK dependencies for maximum speed and control.
-- **Enhanced Aesthetics:** Modernized UI with refined colors, improved main menu, and a cleaner streaming experience.
 - **Reasoning Support:** Optimized rendering for `<think>` tags (CoT) with a dedicated reasoning panel.
 - **Auto-Update System:** Built-in update engine! Use `/update` in chat or run the new update scripts.
-- **Dependency Cleanup:** Completely removed `openai` and `litellm`. The project is now lighter and easier to maintain.
+- **Bug Fixes:** Resolved UTF-8 decoding issues and improved connection stability.
 
 ---
 
@@ -285,20 +287,23 @@ HacxGPT-CLI uses a centralized `providers.json` file for managing API endpoints 
 
 4. **Enter your API key** when prompted - it will be stored locally on your machine
 
-### ⌨️ In-Chat Commands
+### In-Chat Commands
 
 While in chat, use these commands to dynamically manage your configuration:
 
 | Command | Description | Example |
 |---------|-------------|---------|
+| `/save <name>` | Save current session history | `/save session1` |
+| `/load <name>` | Load a saved session | `/load session1` |
+| `/sessions` | List all saved sessions | `/sessions` |
 | `/setup` | Re-configure API keys and default models | `/setup` |
 | `/provider <name>` | Switch between configured providers | `/provider openrouter` |
 | `/model <name>` | Switch the active model | `/model llama-3.3-70b` |
 | `/models` | List all available models for current provider | `/models` |
 | `/status` | Show current configuration | `/status` |
 | `/help` | Display all available commands | `/help` |
-| `/clear` | Clear the conversation history | `/clear` |
-| `/exit` or `/quit` | Exit the application | `/exit` |
+| `/new` | Wipe memory and start a new session | `/new` |
+| `/exit` | Exit the application | `/exit` |
 
 ---
 
@@ -331,11 +336,11 @@ The first time you run it, you will be prompted to enter your API key. It will b
 We are constantly evolving HacxGPT-CLI. Here are some of the technical milestones we are currently targeting:
 
 - [ ] **Advanced Reasoning Support:** Deep-think/reasoning capabilities for complex problem-solving
+- [x] **Conversation Management:** Save, load, and resume conversations
 - [ ] **Agentic Capabilities:** Autonomous tool use and multi-step execution chains
 - [ ] **Web Search Integration:** Real-time data retrieval for up-to-date context
 - [ ] **Advanced File Analysis:** Native support for processing large datasets and documents
 - [ ] **IDE Integrations:** Plugins for VS Code, IntelliJ, and other popular editors
-- [ ] **Conversation Management:** Save, load, and resume conversations
 - [ ] **Multi-Modal Support:** Image and document analysis capabilities
 - [ ] **Custom Prompt Templates:** User-defined system prompts for specific tasks
 - [ ] **Provider Auto-Switching:** Automatically switch providers based on task type
