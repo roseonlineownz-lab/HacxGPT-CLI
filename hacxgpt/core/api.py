@@ -35,6 +35,8 @@ import urllib.parse
 import ssl
 import threading
 import queue
+import gzip
+import zlib
 from dataclasses import dataclass, field, asdict
 from typing import (
     Any,
@@ -651,6 +653,15 @@ class HTTPTransport:
         else:
             self._ssl_context = ssl.create_default_context()
 
+    def _decompress_response(self, response: Any) -> Any:
+        """Decompress response if Content-Encoding is gzip or deflate."""
+        encoding = response.info().get("Content-Encoding")
+        if encoding == "gzip":
+            return gzip.GzipFile(fileobj=io.BytesIO(response.read()))
+        elif encoding == "deflate":
+            return io.BytesIO(zlib.decompress(response.read()))
+        return response
+
     def _build_headers(self, extra_headers: dict = None, content_type: str = "application/json") -> dict:
         headers = {
             "User-Agent": "API.py/1.0",
@@ -732,6 +743,7 @@ class HTTPTransport:
                     )
 
                 response = opener.open(req, timeout=self.timeout)
+                response = self._decompress_response(response)
 
                 if stream:
                     return self._stream_response(response)
@@ -788,18 +800,23 @@ class HTTPTransport:
         """Read SSE stream line by line."""
         buffer = ""
         while True:
+            # Read in small chunks for responsiveness
             chunk = response.read(1)
             if not chunk:
                 if buffer.strip():
                     yield buffer
                 break
-            char = chunk.decode("utf-8", errors="replace")
-            buffer += char
-            if char == "\n":
-                line = buffer.strip()
-                if line:
-                    yield line
-                buffer = ""
+            
+            try:
+                char = chunk.decode("utf-8", errors="replace")
+                buffer += char
+                if char == "\n":
+                    line = buffer.strip()
+                    if line:
+                        yield line
+                    buffer = ""
+            except Exception:
+                continue
 
     def request_raw(
         self,
