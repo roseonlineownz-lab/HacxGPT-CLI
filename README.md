@@ -429,6 +429,7 @@ Need help? Have questions?
 This tool is designed for educational and research purposes. Users are responsible for ensuring their use complies with applicable laws and the terms of service of any third-party APIs they access.
 
 **Important Notes:**
+- ⚠️ **OpenRouter Free Tier:** Free models on OpenRouter often go offline or change. If a model is unavailable, try another one.
 - ⚠️ **API Usage:** When using third-party providers (OpenRouter, Groq), you are subject to their terms of service and privacy policies
 - ⚠️ **Data Privacy:** Your prompts are sent to the provider you choose - not to us
 - ⚠️ **API Keys:** Store your API keys securely and never share them
