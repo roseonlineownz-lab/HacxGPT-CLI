@@ -3,3 +3,4 @@
     "release_notes": "Official release of version 2.1.1 featuring session persistence, machine-bound key encryption, and repository migration.",
     "min_python_version": "3.8"
 }
+
