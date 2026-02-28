@@ -109,8 +109,8 @@ class HacxBrain:
     def chat(self, user_input: str) -> Generator[str, None, None]:
         self.history.append({"role": "user", "content": user_input})
         
-        # Use standard timeout
-        use_stream = True
+        # Use config toggle
+        use_stream = Config.STREAMING
         
         try:
             # Using the local API client (it mimics OpenAI SDK)

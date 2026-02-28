@@ -16,6 +16,7 @@ class Config:
     ACTIVE_MODEL = None 
     SELECTED_PROVIDER_ALIAS = None
     SELECTED_MODEL_ALIAS = None
+    STREAMING = False  # Global toggle for streaming
     
     # Defaults
     DEFAULT_PROVIDER = "hacxgpt"
