@@ -1,6 +1,5 @@
 {
-    "version": "2.1.1",
-    "release_notes": "Official release of version 2.1.1 featuring session persistence, machine-bound key encryption, and repository migration.",
+    "version": "2.1.2",
+    "release_notes": "Internal bug fixes and improved automated release system.",
     "min_python_version": "3.8"
 }
-
