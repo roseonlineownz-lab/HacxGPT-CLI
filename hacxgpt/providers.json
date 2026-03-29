@@ -10,10 +10,125 @@
         ],
         "default_model": "hacxgpt-lightning-flash"
     },
+    "perplexity": {
+        "base_url": "https://api.perplexity.ai",
+        "key_var": "PERPLEXITY_API_KEY",
+        "models": [
+            {
+                "name": "sonar",
+                "alias": "Sonar (Fast & Cheap)"
+            },
+            {
+                "name": "sonar-pro",
+                "alias": "Sonar Pro (200K Context)"
+            },
+            {
+                "name": "sonar-reasoning",
+                "alias": "Sonar Reasoning"
+            },
+            {
+                "name": "sonar-reasoning-pro",
+                "alias": "Sonar Reasoning Pro"
+            },
+            {
+                "name": "sonar-deep-research",
+                "alias": "Sonar Deep Research"
+            }
+        ],
+        "default_model": "sonar"
+    },
+    "openai": {
+        "base_url": "https://api.openai.com/v1",
+        "key_var": "OPENAI_API_KEY",
+        "models": [
+            {
+                "name": "gpt-4o",
+                "alias": "GPT-4o"
+            },
+            {
+                "name": "gpt-4o-mini",
+                "alias": "GPT-4o Mini (Fast)"
+            },
+            {
+                "name": "gpt-4-turbo",
+                "alias": "GPT-4 Turbo"
+            },
+            {
+                "name": "o1",
+                "alias": "O1 Reasoning"
+            },
+            {
+                "name": "o1-mini",
+                "alias": "O1 Mini"
+            }
+        ],
+        "default_model": "gpt-4o-mini"
+    },
+    "anthropic": {
+        "base_url": "https://api.anthropic.com/v1",
+        "key_var": "ANTHROPIC_API_KEY",
+        "models": [
+            {
+                "name": "claude-3-5-sonnet-20241022",
+                "alias": "Claude 3.5 Sonnet"
+            },
+            {
+                "name": "claude-3-5-haiku-20241022",
+                "alias": "Claude 3.5 Haiku (Fast)"
+            },
+            {
+                "name": "claude-3-opus-20240229",
+                "alias": "Claude 3 Opus"
+            }
+        ],
+        "default_model": "claude-3-5-haiku-20241022"
+    },
+    "xai": {
+        "base_url": "https://api.x.ai/v1",
+        "key_var": "XAI_API_KEY",
+        "models": [
+            {
+                "name": "grok-2-1212",
+                "alias": "Grok Beta"
+            },
+            {
+                "name": "grok-2-1212",
+                "alias": "Grok 2"
+            },
+            {
+                "name": "grok-2-vision-1212",
+                "alias": "Grok 2 Vision"
+            }
+        ],
+        "default_model": "grok-2-1212"
+    },
+    "deepseek": {
+        "base_url": "https://api.deepseek.com/v1",
+        "key_var": "DEEPSEEK_API_KEY",
+        "models": [
+            {
+                "name": "deepseek-chat",
+                "alias": "DeepSeek Chat"
+            },
+            {
+                "name": "deepseek-reasoner",
+                "alias": "DeepSeek Reasoner (R1)"
+            }
+        ],
+        "default_model": "deepseek-chat"
+    },
     "groq": {
         "base_url": "https://api.groq.com/openai/v1",
-        "key_var": "HACX_GROQ_KEY",
+        "key_var": "GROQ_API_KEY",
         "models": [
+            {
+                "name": "llama-3.3-70b-versatile",
+                "alias": "Llama 3.3 70B (Fast)"
+            },
+            {
+                "name": "llama-3.1-8b-instant",
+                "alias": "Llama 3.1 8B (Instant)"
+            },
             {
                 "name": "moonshotai/kimi-k2-instruct-0905",
                 "alias": "Kimi K2 Instruct"
@@ -21,40 +136,127 @@
             {
                 "name": "qwen/qwen3-32b",
                 "alias": "Qwen 3 32B"
+            },
+            {
+                "name": "deepseek-r1-distill-llama-70b",
+                "alias": "DeepSeek R1 Distill 70B"
+            },
+            {
+                "name": "gemma2-9b-it",
+                "alias": "Gemma 2 9B"
             }
         ],
-        "default_model": "qwen/qwen3-32b"
+        "default_model": "llama-3.3-70b-versatile"
     },
     "openrouter": {
         "base_url": "https://openrouter.ai/api/v1",
         "key_var": "HAC_OPENROUTER_KEY",
         "models": [
             {
+                "name": "qwen/qwen-2.5-coder-32b-instruct:free",
+                "alias": "Qwen 2.5 Coder 32B (FREE CODER!)"
+            },
+            {
+                "name": "google/gemma-3-12b-it:free",
+                "alias": "Gemma 3 12B (Free)"
+            },
+            {
+                "name": "meta-llama/llama-3.3-70b-instruct:free",
+                "alias": "Llama 3.3 70B (Free)"
+            },
+            {
+                "name": "cognitivecomputations/dolphin-mistral-24b-venice-edition:free",
+                "alias": "Dolphin Uncensored (Free)"
+            },
+            {
+                "name": "nousresearch/hermes-3-llama-3.1-405b:free",
+                "alias": "Hermes 3 405B (Free)"
+            },
+            {
                 "name": "xiaomi/mimo-v2-flash:free",
                 "alias": "Xiaomi MIMO v2 (Free)"
             },
             {
-                "name": "mistralai/devstral-2512:free",
-                "alias": "Mistral Devstral (Free)"
-            },
-            {
-                "name": "z-ai/glm-4.5-air:free",
-                "alias": "GLM 4.5 Air (Free)"
-            },
-            {
-                "name": "moonshotai/kimi-k2:free",
-                "alias": "Moonshot Kimi K2 (Free)"
-            },
-            {
-                "name": "tngtech/deepseek-r1t2-chimera:free",
-                "alias": "DeepSeek R1T2 Chimera (Free)"
-            },
-            {
-                "name": "tngtech/deepseek-r1t-chimera:free",
-                "alias": "DeepSeek R1T Chimera (Free)"
+                "name": "mistralai/mistral-small-3.1-24b-instruct:free",
+                "alias": "Mistral Small 3.1 (Free)"
             }
         ],
-        "default_model": "xiaomi/mimo-v2-flash:free"
+        "default_model": "qwen/qwen-2.5-coder-32b-instruct:free"
+    },
+    "nvidia": {
+        "base_url": "https://integrate.api.nvidia.com/v1",
+        "key_var": "NVIDIA_API_KEY",
+        "models": [
+            {
+                "name": "meta/llama-3.1-8b-instruct",
+                "alias": "Llama 3.1 8B (Fast)"
+            },
+            {
+                "name": "meta/llama-3.1-405b-instruct",
+                "alias": "Llama 3.1 405B (Heavy)"
+            },
+            {
+                "name": "mistralai/mistral-large-2-instruct",
+                "alias": "Mistral Large 2"
+            },
+            {
+                "name": "deepseek-ai/deepseek-v3",
+                "alias": "DeepSeek V3"
+            }
+        ],
+        "default_model": "meta/llama-3.1-8b-instruct"
+    },
+    "venice": {
+        "base_url": "https://api.venice.ai/api/v1",
+        "key_var": "VENICE_API_KEY",
+        "models": [
+            {
+                "name": "llama-3.3-70b",
+                "alias": "Llama 3.3 70B (Fast)"
+            },
+            {
+                "name": "llama-3.1-405b",
+                "alias": "Llama 3.1 405B (Uncensored)"
+            },
+            {
+                "name": "venice-uncensored",
+                "alias": "Venice Uncensored"
+            }
+        ],
+        "default_model": "llama-3.3-70b"
+    },
+    "gemini": {
+        "base_url": "https://generativelanguage.googleapis.com/v1beta",
+        "key_var": "GEMINI_API_KEY",
+        "models": [
+            {
+                "name": "gemini-2.0-flash",
+                "alias": "Gemini 1.5 Flash (Fast)"
+            },
+            {
+                "name": "gemini-2.0-flash",
+                "alias": "Gemini 1.5 Pro"
+            },
+            {
+                "name": "gemini-2.0-flash",
+                "alias": "Gemini 2.0 Flash"
+            }
+        ],
+        "default_model": "gemini-2.0-flash"
+    },
+    "minimax": {
+        "base_url": "https://api.minimax.chat/v1",
+        "key_var": "MINIMAX_API_KEY",
+        "models": [
+            {
+                "name": "abab6.5-chat",
+                "alias": "MiniMax 6.5 Chat"
+            },
+            {
+                "name": "abab6.5s-chat",
+                "alias": "MiniMax 6.5S (Fast)"
+            }
+        ],
+        "default_model": "abab6.5s-chat"
     }
-
 }
